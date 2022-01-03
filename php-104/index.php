@@ -2,9 +2,11 @@
 // Shoe brands
 $shoebrands = ['Nike', 'Adidas', 'Puma', 'Converse'];
 
-// Print Puma
+// Print 3rd brand
+echo 'Shoe brands' . PHP_EOL;
 print_r($shoebrands);
-echo 'Result: ' . $shoebrands[2] . PHP_EOL;
+echo 'The third brand is: ' . $shoebrands[2] . PHP_EOL;
+echo PHP_EOL;
 
 // NBA players
 
@@ -15,9 +17,10 @@ $nbaplayers = [
 ];
 
 // Print Steph Curry's team.
-
+echo 'NBA Players' . PHP_EOL;
 print_r($nbaplayers);
-echo 'Result: ' . $nbaplayers['Steph Curry'] . PHP_EOL;
+echo 'The team of Steph Curry is: ' . $nbaplayers['Steph Curry'] . PHP_EOL;
+echo PHP_EOL;
 
 // Fast food chains
 
@@ -40,32 +43,32 @@ $fastfoodchains = [
 ];
 
 // Print the fast food chain with the least managers and the most employees.
-
+echo 'Fast food chains' . PHP_EOL;
 print_r($fastfoodchains);
-echo 'Least managers: ';
+echo 'The chain with the least managers: ';
 
 if($fastfoodchains['Jollibee']['Managers'] < $fastfoodchains['Mcdonalds']['Managers'] &&
     $fastfoodchains['Jollibee']['Managers'] < $fastfoodchains['KFC']['Managers']) {
-  echo 'Jollibee';
+  echo 'Jollibee = ' . $fastfoodchains['Jollibee']['Managers'];
 } elseif($fastfoodchains['Mcdonalds']['Managers'] < $fastfoodchains['Jollibee']['Managers'] &&
     $fastfoodchains['Mcdonalds']['Managers'] < $fastfoodchains['KFC']['Managers']) {
-  echo 'Mcdonalds';
+  echo 'Mcdonalds' . $fastfoodchains['Mcdonalds']['Managers'];
 } elseif($fastfoodchains['KFC']['Managers'] < $fastfoodchains['Mcdonalds']['Managers'] &&
     $fastfoodchains['KFC']['Managers'] < $fastfoodchains['Jollibee']['Managers']) {
-  echo 'KFC';
+  echo 'KFC' . $fastfoodchains['KFC']['Managers'];
 }
 
 echo PHP_EOL;
-echo 'Most employees: ';
+echo 'The chain with the most employees: ';
 
 if($fastfoodchains['Jollibee']['Employees'] > $fastfoodchains['Mcdonalds']['Employees'] &&
     $fastfoodchains['Jollibee']['Employees'] > $fastfoodchains['KFC']['Employees']) {
-  echo 'Jollibee';
+  echo 'Jollibee' . $fastfoodchains['Jollibee']['Managers'];
 } elseif($fastfoodchains['Mcdonalds']['Employees'] > $fastfoodchains['Jollibee']['Employees'] &&
     $fastfoodchains['Mcdonalds']['Employees'] > $fastfoodchains['KFC']['Employees']) {
-  echo 'Mcdonalds';
+  echo 'Mcdonalds' . $fastfoodchains['Mcdonalds']['Managers'];
 } elseif($fastfoodchains['KFC']['Employees'] > $fastfoodchains['Mcdonalds']['Employees'] &&
     $fastfoodchains['KFC']['Employees'] > $fastfoodchains['Jollibee']['Employees']) {
-  echo 'KFC';
+  echo 'KFC' . $fastfoodchains['KFC']['Managers'];
 }
 echo PHP_EOL;
