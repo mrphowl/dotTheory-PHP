@@ -15,4 +15,6 @@ function checkNum($number) {
 if(isset($_POST['inputNumber'])) {
    $check = checkNum($_POST['inputNumber']);
    echo 'Entered value: ' . $_POST['inputNumber'].'<br>';
+   echo 'Result: '. $check;
 }
+?>
