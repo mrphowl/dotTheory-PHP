@@ -52,10 +52,10 @@ if($fastfoodchains['Jollibee']['Managers'] < $fastfoodchains['Mcdonalds']['Manag
   echo 'Jollibee = ' . $fastfoodchains['Jollibee']['Managers'];
 } elseif($fastfoodchains['Mcdonalds']['Managers'] < $fastfoodchains['Jollibee']['Managers'] &&
     $fastfoodchains['Mcdonalds']['Managers'] < $fastfoodchains['KFC']['Managers']) {
-  echo 'Mcdonalds' . $fastfoodchains['Mcdonalds']['Managers'];
+  echo 'Mcdonalds = ' . $fastfoodchains['Mcdonalds']['Managers'];
 } elseif($fastfoodchains['KFC']['Managers'] < $fastfoodchains['Mcdonalds']['Managers'] &&
     $fastfoodchains['KFC']['Managers'] < $fastfoodchains['Jollibee']['Managers']) {
-  echo 'KFC' . $fastfoodchains['KFC']['Managers'];
+  echo 'KFC = ' . $fastfoodchains['KFC']['Managers'];
 }
 
 echo PHP_EOL;
@@ -63,12 +63,12 @@ echo 'The chain with the most employees: ';
 
 if($fastfoodchains['Jollibee']['Employees'] > $fastfoodchains['Mcdonalds']['Employees'] &&
     $fastfoodchains['Jollibee']['Employees'] > $fastfoodchains['KFC']['Employees']) {
-  echo 'Jollibee' . $fastfoodchains['Jollibee']['Managers'];
+  echo 'Jollibee = ' . $fastfoodchains['Jollibee']['Managers'];
 } elseif($fastfoodchains['Mcdonalds']['Employees'] > $fastfoodchains['Jollibee']['Employees'] &&
     $fastfoodchains['Mcdonalds']['Employees'] > $fastfoodchains['KFC']['Employees']) {
-  echo 'Mcdonalds' . $fastfoodchains['Mcdonalds']['Managers'];
+  echo 'Mcdonalds = ' . $fastfoodchains['Mcdonalds']['Managers'];
 } elseif($fastfoodchains['KFC']['Employees'] > $fastfoodchains['Mcdonalds']['Employees'] &&
     $fastfoodchains['KFC']['Employees'] > $fastfoodchains['Jollibee']['Employees']) {
-  echo 'KFC' . $fastfoodchains['KFC']['Managers'];
+  echo 'KFC = ' . $fastfoodchains['KFC']['Managers'];
 }
 echo PHP_EOL;
