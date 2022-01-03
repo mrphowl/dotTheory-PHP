@@ -1,7 +1,12 @@
 <?php
+// Shoe brands
 $shoebrands = ['Nike', 'Adidas', 'Puma', 'Converse'];
 
-echo $shoebrands[2] . PHP_EOL;
+// Print Puma
+print_r($shoebrands);
+echo 'Result: ' . $shoebrands[2] . PHP_EOL;
+
+// NBA players
 
 $nbaplayers = [
   'Lebron James' => 'Lakers',
@@ -9,7 +14,12 @@ $nbaplayers = [
   'Steph Curry' => 'Warriors',
 ];
 
-echo $nbaplayers['Steph Curry'] . PHP_EOL;
+// Print Steph Curry's team.
+
+print_r($nbaplayers);
+echo 'Result: ' . $nbaplayers['Steph Curry'] . PHP_EOL;
+
+// Fast food chains
 
 $fastfoodchains = [
   'Jollibee' => [
@@ -29,6 +39,9 @@ $fastfoodchains = [
   ],
 ];
 
+// Print the fast food chain with the least managers and the most employees.
+
+print_r($fastfoodchains);
 echo 'Least managers: ';
 
 if($fastfoodchains['Jollibee']['Managers'] < $fastfoodchains['Mcdonalds']['Managers'] &&
