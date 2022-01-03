@@ -6,16 +6,14 @@
  * @param float $weightPounds
  */
 function calculate_bmi_english($heightInches, $weightPounds){
- 
+  // Calculate index using $heightInches and $weightPounds
   $index =0;
-
-  // Calculate $index if both values are given and not zero
   if($heightInches !=0 && $weightPounds !=0) {
     $index = round($weightPounds/($heightInches*$heightInches)* 703,2);
   }
 
+  // Deterine the BMI by comparing the $index 
   $bmi="";
-  // Calculate BMI
   if ($index < 18.5) {
     $bmi="underweight - BMI : " . $index;
   } else if ($index < 25) {
