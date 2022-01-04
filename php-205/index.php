@@ -6,8 +6,9 @@ if(isset($_POST['submitted'])) {
     define('FEEDBACK_AGELESS', 'This person is AGELESS');
 
     $firstname = filter_input(INPUT_POST, 'firstname');
-    $lastanme = filter_input(INPUT_POST, 'lastanme');
-    $age = filter_input(INPUT_POST, 'age', FILTER_VALIDATE_INT, ['min_range' => 1]);
+    $lastname = filter_input(INPUT_POST, 'lastname');
+    $age = filter_input(INPUT_POST, 'age', FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]]);
+    $output = strtoupper("$firstname $lastname");
 
     if($age >= 1 and $age <= 19) {
         $feedback = FEEDBACK_STUDENT;
@@ -49,6 +50,7 @@ if(isset($_POST['submitted'])) {
 
     <?php if(isset($_POST['submitted'])): ?>
     <div>
+        <p><?php echo $output; ?></p>
         <p><?php echo $feedback; ?></p>
     </div>
     <?php endif; ?>
