@@ -89,36 +89,48 @@ class Country {
      * @return int
      */
     public function colonization_years(): int {
-        return $this->colonization_end - $this->colonization_start;
+        $format = 'Y-m-d H:i:s';
+        $datestart = new DateTime(date($format, $this->colonization_start));
+        $dateend = new DateTime(date($format, $this->colonization_end));
+        $interval = $datestart->diff($dateend);
+        return $interval->y;
     }
 }
 
 // Instances
-$spain = new Country('Spain', 'La Piel de Toro (The Bull Skin)', 1565, 1898);
-$japan = new Country('Japan', 'Land of the Rising sun', 1942, 1945);
-$america = new Country('America', 'Land of Opportunities', 1898, 1946);
+$datefrom = strtotime('February 13, 1565');
+$dateto = strtotime('August 13, 1898');
+$spain = new Country('Spain', 'La Piel de Toro (The Bull Skin)', $datefrom, $dateto);
+
+$datefrom = strtotime('January 2, 1942');
+$dateto = strtotime('July 5, 1945');
+$japan = new Country('Japan', 'Land of the Rising sun', $datefrom, $dateto);
+
+$datefrom = strtotime('January 4, 1899');
+$dateto = strtotime('July 4, 1946');
+$america = new Country('America', 'Land of Opportunities', $datefrom, $dateto);
 
 // Build output data
 $data = [];
 $data['spain'] = (object) [
     'name' => $spain->get('name'),
     'description' => $spain->get('description'),
-    'from' => $spain->get('colonization_start'),
-    'to' => $spain->get('colonization_end'),
+    'from' => date('F j, Y', $spain->get('colonization_start')),
+    'to' => date('F j, Y', $spain->get('colonization_end')),
     'years' => $spain->colonization_years(),
 ];
 $data['japan'] = (object) [
     'name' => $japan->get('name'),
     'description' => $japan->get('description'),
-    'from' => $japan->get('colonization_start'),
-    'to' => $japan->get('colonization_end'),
+    'from' => date('F j, Y', $japan->get('colonization_start')),
+    'to' => date('F j, Y', $japan->get('colonization_end')),
     'years' => $japan->colonization_years(),
 ];
 $data['america'] = (object) [
     'name' => $america->get('name'),
     'description' => $america->get('description'),
-    'from' => $america->get('colonization_start'),
-    'to' => $america->get('colonization_end'),
+    'from' => date('F j, Y', $america->get('colonization_start')),
+    'to' => date('F j, Y', $america->get('colonization_end')),
     'years' => $america->colonization_years(),
 ];
 ?>
@@ -155,8 +167,8 @@ $data['america'] = (object) [
                 <tr>
                     <th>Country</th>
                     <th>Description</th>
-                    <th>From Year</th>
-                    <th>To Year</th>
+                    <th>From Date</th>
+                    <th>To Date</th>
                     <th>Years of colonization</th>
                 </tr>
             </thead>
