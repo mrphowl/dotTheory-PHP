@@ -1,0 +1,26 @@
+CREATE DATABASE php_training CHARSET utf8mb4 COLLATE utf8mb4_general_ci;
+
+CREATE TABLE IF NOT EXISTS php_training.ph_heroes (
+    id int auto_increment,
+    firstname varchar(250),
+    lastname varchar(250),
+    birthplace varchar(250),
+    description text,
+    primary key (id)
+) ENGINE InnoDB;
+
+GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, CREATE TEMPORARY TABLES, DROP, INDEX, ALTER ON php_training.* TO 'dottheoryphpuser'@'localhost' IDENTIFIED BY 'dottheoryphp';
+
+INSERT INTO php_training.ph_heroes VALUES
+(null, 'Jose', 'Rizal', 'Calamba, Laguna', 'Philippine national hero.'),
+(null, 'Andres', 'Bonifacio', 'Tondo, Manila', 'Father of the Philippine Revolution.'),
+(null, 'Emilio', 'Aguinaldo', 'Kawit, Cavite', 'First president of the Philippines.'),
+(null, 'Apolinario', 'Mabini', 'Tanauan, Batangas', 'Utak ng himagsikan.'),
+(null, 'Marcelo', 'Del Pilar', 'Bulacan, Bulacan', 'Father of Philippine journalism.');
+
+Source: https://en.wikipedia.org/wiki/National_hero_of_the_Philippines
+https://en.wikipedia.org/wiki/Jos%C3%A9_Rizal
+https://en.wikipedia.org/wiki/Andr%C3%A9s_Bonifacio
+https://en.wikipedia.org/wiki/Emilio_Aguinaldo
+https://en.wikipedia.org/wiki/Apolinario_Mabini
+https://en.wikipedia.org/wiki/Marcelo_H._del_Pilar
