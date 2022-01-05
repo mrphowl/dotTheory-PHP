@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<students status = "ok">
+    <record student_id = "1">
+        <name>John Dewey</name>
+        <gender>Male</gender>
+        <section>A</section>
+    </record>
+    <record student_id = "2">
+        <name>Natasha Wilson</name>
+        <gender>Female</gender>
+        <section>B</section>
+    </record>
+    <record student_id = "3">
+        <name>Tommy Starch</name>
+        <gender>Male</gender>
+        <section>B</section>
+    </record>
+    <record student_id = "4">
+        <name>Ronald Archingsun</name>
+        <gender>Male</gender>
+        <section>A</section>
+    </record>
+    <record student_id = "5">
+        <name>Camilla Valkyria</name>
+        <gender>Female</gender>
+        <section>A</section>
+    </record>
+</students>
