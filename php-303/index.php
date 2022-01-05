@@ -112,26 +112,28 @@ $america = new Country('America', 'Land of Opportunities', $datefrom, $dateto);
 
 // Build output data
 $data = [];
+$dateformat = 'm/d/Y';
+$yearsuffix = ' years';
 $data['spain'] = (object) [
     'name' => $spain->get('name'),
     'description' => $spain->get('description'),
-    'from' => date('F j, Y', $spain->get('colonization_start')),
-    'to' => date('F j, Y', $spain->get('colonization_end')),
-    'years' => $spain->colonization_years(),
+    'from' => date($dateformat, $spain->get('colonization_start')),
+    'to' => date($dateformat, $spain->get('colonization_end')),
+    'years' => $spain->colonization_years() . $yearsuffix,
 ];
 $data['japan'] = (object) [
     'name' => $japan->get('name'),
     'description' => $japan->get('description'),
-    'from' => date('F j, Y', $japan->get('colonization_start')),
-    'to' => date('F j, Y', $japan->get('colonization_end')),
-    'years' => $japan->colonization_years(),
+    'from' => date($dateformat, $japan->get('colonization_start')),
+    'to' => date($dateformat, $japan->get('colonization_end')),
+    'years' => $japan->colonization_years() . $yearsuffix,
 ];
 $data['america'] = (object) [
     'name' => $america->get('name'),
     'description' => $america->get('description'),
-    'from' => date('F j, Y', $america->get('colonization_start')),
-    'to' => date('F j, Y', $america->get('colonization_end')),
-    'years' => $america->colonization_years(),
+    'from' => date($dateformat, $america->get('colonization_start')),
+    'to' => date($dateformat, $america->get('colonization_end')),
+    'years' => $america->colonization_years() . $yearsuffix,
 ];
 ?>
 <!DOCTYPE html>
@@ -167,9 +169,9 @@ $data['america'] = (object) [
                 <tr>
                     <th>Country</th>
                     <th>Description</th>
-                    <th>From Date</th>
-                    <th>To Date</th>
-                    <th>Years of colonization</th>
+                    <th>Start</th>
+                    <th>End</th>
+                    <th>Total Colonization Years</th>
                 </tr>
             </thead>
             <tbody>
