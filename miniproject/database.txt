@@ -1,0 +1,33 @@
+DROP DATABASE php_training;
+CREATE DATABASE php_training default charset utf8mb4 default COLLATE utf8mb4_general_ci;
+GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, CREATE TEMPORARY TABLES, DROP, INDEX, ALTER ON php_training.* TO 'dottheoryphpuser'@'localhost' IDENTIFIED BY 'dottheoryphp';
+
+create table if not exists php_training.clients (
+	id int auto_increment,
+    firstname varchar(255),
+    lastname varchar(255),
+    middlename varchar(255),
+    date_visited datetime,
+    birthday datetime,
+    street varchar(50),
+    city varchar(50),
+    province varchar(50),
+    email varchar(255),
+    store_id int,
+    primary key (id)
+) engine InnoDB;
+
+create table if not exists php_training.stores (
+	id int auto_increment,
+    name varchar(255),
+    primary key (id)
+) engine InnoDB;
+
+INSERT INTO php_training.clients (id, firstname, middlename, lastname, email, street, city, province, date_visited, birthday, store_id) VALUES(1, 'VINCENT CHASE', 'RAVE', 'CASTILLO', 'vinchase@gmail.com', 'A101 ONE OASIS', 'PASIG', 'METRO MANILA', '2021-09-01', '1991-08-01', 2);
+INSERT INTO php_training.clients (id, firstname, middlename, lastname, email, street, city, province, date_visited, birthday, store_id) VALUES(2, 'VIOLET', 'CANLAS', 'PANGAN', 'm34pangan@gmail.com', '24 JOHN', 'SAN PEDRO', 'LAGUNA', '2021-09-02', '1993-03-01', 1);
+INSERT INTO php_training.clients (id, firstname, middlename, lastname, email, street, city, province, date_visited, birthday, store_id) VALUES(3, 'FRANCINE', 'ROXAS', 'BERNARDO', 'froxas@yahoo.com', '3450 AGATA', 'MANILA', 'METRO MANILA', '2021-09-03', '1992-02-18', 3);
+
+INSERT INTO php_training.stores (id, name) VALUES(1, 'SM DEPARTMENT STORE');
+INSERT INTO php_training.stores (id, name) VALUES(2, 'NIKE STORE');
+INSERT INTO php_training.stores (id, name) VALUES(3, 'ADDIDAS STORE');
+INSERT INTO php_training.stores (id, name) VALUES(4, 'POWER MAC CENTER');
