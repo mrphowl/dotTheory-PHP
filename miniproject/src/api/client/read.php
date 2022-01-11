@@ -9,9 +9,11 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 require_once(__DIR__ . '\..\config\config.php');
 require_once(__DIR__ . '\..\config\Database.php');
 require_once(__DIR__ . '\..\object\Client.php');
+require_once(__DIR__ . '\..\object\Store.php');
 
 $conn = new Database($CFG->database);
 $client = new Client($conn->getConnection());
+$store = new Store($conn->getConnection());
 $validation_date_regexp = "/^\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/";
 $response = [
     'message' => '',
@@ -19,6 +21,10 @@ $response = [
 ];
 
 $data = $client->getRecords();
+
+foreach ($data as &$client) {
+    $client['storeName'] = $store->getStoreName($client['store_id']);
+}
 
 $response['data'] = $data;
 $response['status'] = 200;
