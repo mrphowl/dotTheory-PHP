@@ -16,7 +16,7 @@ class Client {
     public $province;
     public $email;
     public $store_id;
-    public $storesVisited;
+    private $storesVisited;
     private $dbconn;
     private $table = 'clients';
 
