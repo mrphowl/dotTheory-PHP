@@ -164,7 +164,7 @@ class Client {
             $sql .= " LIMIT $limit";
         }
 
-        $stmt = $this->dbconn->prepare($sql, $params);
+        $stmt = $this->dbconn->prepare($sql);
 
         // bind parameters
         foreach($params as $field => $value) {
