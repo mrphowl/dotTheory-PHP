@@ -16,7 +16,7 @@ class Client {
     public $province;
     public $email;
     public $store_id;
-    private $storesVisited;
+    public $storeName;
     private $dbconn;
     private $table = 'clients';
 
@@ -43,7 +43,7 @@ class Client {
         $this->province = null;
         $this->email = null;
         $this->store_id = null;
-        $this->storesVisited = null;
+        $this->storeName = null;
     }
 
     /**
@@ -174,7 +174,12 @@ class Client {
         }
 
         if($stmt->execute()) {
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($data as &$item) {
+                $item['id'] = intval($item['id']);
+                $item['store_id'] = intval($item['store_id']);
+            }
+            return $data;
         }
         else {
             return [];
@@ -211,7 +216,7 @@ class Client {
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
             $this->init();
-            $this->id = $row['id'];
+            $this->id = intval($row['id']);
             $this->firstname = $row['firstname'];
             $this->lastname = $row['lastname'];
             $this->middlename = $row['middlename'];
@@ -221,7 +226,7 @@ class Client {
             $this->city = $row['city'];
             $this->province = $row['province'];
             $this->email = $row['email'];
-            $this->store_id = $row['store_id'];
+            $this->store_id = intval($row['store_id']);
 
             return true;
         }
@@ -247,7 +252,7 @@ class Client {
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
             $this->init();
-            $this->id = $row['id'];
+            $this->id = intval($row['id']);
             $this->firstname = $row['firstname'];
             $this->lastname = $row['lastname'];
             $this->middlename = $row['middlename'];
@@ -257,7 +262,7 @@ class Client {
             $this->city = $row['city'];
             $this->province = $row['province'];
             $this->email = $row['email'];
-            $this->store_id = $row['store_id'];
+            $this->store_id = intval($row['store_id']);
 
             return true;
         }
