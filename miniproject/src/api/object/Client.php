@@ -54,7 +54,7 @@ class Client {
     public function create() {
 
         $sql = 'INSERT INTO ' . $this->table . ' SET '
-             . 'firstname = :firstname, lastname = :lastname, middlename = :middlename, date_visited = :date_visited, birthday = :birthday, street = :street, city = :city, province = :province, email = :email';
+             . 'firstname = :firstname, lastname = :lastname, middlename = :middlename, date_visited = :date_visited, birthday = :birthday, street = :street, city = :city, province = :province, email = :email, store_id = :store_id';
 
         $stmt = $this->dbconn->prepare($sql);
 
@@ -71,6 +71,7 @@ class Client {
         $stmt->bindParam(':city', $this->city);
         $stmt->bindParam(':province', $this->province);
         $stmt->bindParam(':email', $this->email);
+        $stmt->bindParam(':store_id', $this->store_id);
 
         if($stmt->execute()) {
             // --TODO: return the inserted id
@@ -86,7 +87,7 @@ class Client {
      */
     public function update() {
         $sql = 'UPDATE ' . $this->table . ' SET '
-             . 'firstname = :firstname, lastname = :lastname, middlename = :middlename, date_visited = :date_visited, birthday = :birthday, street = :street, city = :city, province = :province, email = :email '
+             . 'firstname = :firstname, lastname = :lastname, middlename = :middlename, date_visited = :date_visited, birthday = :birthday, street = :street, city = :city, province = :province, email = :email, store_id = :store_id '
              . 'WHERE id = :id';
 
         $stmt = $this->dbconn->prepare($sql);
@@ -105,6 +106,7 @@ class Client {
         $stmt->bindParam(':city', $this->city);
         $stmt->bindParam(':province', $this->province);
         $stmt->bindParam(':email', $this->email);
+        $stmt->bindParam(':store_id', $this->store_id);
 
         if($stmt->execute()) {
             return true;
@@ -302,6 +304,7 @@ class Client {
         $this->city = sanitize($this->city);
         $this->province = sanitize($this->city);
         $this->email = sanitize($this->email);
+        $this->store_id = sanitize($this->store_id);
     }
 
 }
