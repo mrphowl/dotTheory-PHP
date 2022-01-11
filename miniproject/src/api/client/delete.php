@@ -29,8 +29,8 @@ if($_POST) {
     // process data
     if(!$response['status']) {
         if($client->delete($id)) {
-            $response['message'] = $client->id;
-            $response['status'] = 201;
+            $response['message'] = '';
+            $response['status'] = 200;
         } else {
             $response['message'] = 'An error occured.';
             $response['status'] = 500;
